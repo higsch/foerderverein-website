@@ -3,11 +3,16 @@
 	import '../app.css';
 </script>
 
-<Header />
+<div class="page-wrapper">
+	<Header />
 
-<main>
-	<slot />
-</main>
+	<main>
+		<slot />
+	</main>
+</div>
 
 <style>
+	.page-wrapper {
+		width: 100%;
+	}
 </style>
