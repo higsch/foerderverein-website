@@ -15,12 +15,6 @@
 			<h1>Förderverein</h1>
 			<h2>Franklinschule Mannheim e.V.</h2>
 		</a>
-		<a class="logo" href="/">
-			<img
-				src={logo}
-				alt="Logo des Förderverein Franklinschule"
-			/>
-		</a>
 		<nav>
 			<ul>
 				<li class:active={$page.path === '/ueberuns'}><a sveltekit:prefetch href="/ueberuns">Über uns</a></li>
@@ -28,6 +22,12 @@
 				<li class:active={$page.path === '/mitmachen'}><a sveltekit:prefetch href="/mitmachen">Mitmachen</a></li>
 			</ul>
 		</nav>
+		<a class="logo" href="/">
+			<img
+				src={logo}
+				alt="Logo des Förderverein Franklinschule"
+			/>
+		</a>
 	</div>
 </header>
 
@@ -48,43 +48,60 @@
 
 	.flows {
 		position: absolute;
-		bottom: -15vmin;
+		bottom: 0;
 		z-index: 1;
 		width: 100%;
-		height: 100%;
 	}
 
 	.foreground {
 		position: relative;
 		z-index: 100;
 		display: flex;
+		flex-direction: column;
 		width: 100%;
 		height: 100%;
-		padding: 1rem;
+	}
+
+	@media (min-width: 600px) {
+		.foreground {
+			flex-direction: row;
+		}
 	}
 
 	.foreground > * {
 		flex: 1;
 		display: flex;
+		margin: 0.7rem 0;
 	}
 
 	.title {
 		flex-direction: column;
-		margin-top: -5%;
 		justify-content: center;
-		text-align: right;
+		text-align: center;
+	}
+
+	@media (min-width: 600px) {
+		.title {
+			transform: translateY(-10%);
+		}
 	}
 
 	h1 {
-		font-size: 3rem;
+		font-size: calc(2rem + 0.5vw);
 	}
 
 	h2 {
-		font-size: 1.3rem;
+		font-size: calc(0.8rem + 0.4vw);
 	}
 
 	.logo {
 		justify-content: center;
+	}
+
+	@media (min-width: 600px) {
+		.logo {
+			order: 2;
+		}
 	}
 	
 	.logo img {
@@ -94,8 +111,14 @@
 	}
 
 	nav {
-		margin-top: -5%;
-		align-items: center;
+		justify-content: center;
+	}
+
+	@media (min-width: 600px) {
+		nav {
+			order: 3;
+			transform: translateY(-10%);
+		}
 	}
 
 	ul {

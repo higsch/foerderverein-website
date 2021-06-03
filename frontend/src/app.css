@@ -2,6 +2,7 @@
 @import '@fontsource/nunito-sans';
 
 * {
+	position: relative;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -55,4 +56,8 @@ body {
 
 h1, h2, h3 {
 	font-family: var(--title-font);
+}
+
+main {
+	height: 500px;
 }
