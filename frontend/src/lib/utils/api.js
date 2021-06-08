@@ -1,0 +1,1 @@
+export const HOST = 'https://admin.foerderverein-franklinschule.de/wp-json/wp/v2';

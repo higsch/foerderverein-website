@@ -18,4 +18,11 @@
 	.page-wrapper {
 		width: 100%;
 	}
+
+	main {
+		width: 100%;
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 1rem 0;
+	}
 </style>
