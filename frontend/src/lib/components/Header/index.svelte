@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import logo from './logo_image.svg';
 
-	import Flows from '$lib/Flows/index.svelte';
+	import Flows from '$lib/components/Flows/index.svelte';
 </script>
 
 <header>

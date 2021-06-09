@@ -22,14 +22,12 @@
 
 <script>
   export let data;
-
-  $: console.log(data)
 </script>
 
-<h2>
+<!-- <h2>
   {data.title.rendered}
 </h2>
-{@html data.content.rendered}
+{@html data.content.rendered} -->
 
 <style>
 	
