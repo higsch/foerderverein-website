@@ -48,6 +48,7 @@
   footer {
 		position: relative;
 		width: 100%;
+		padding-bottom: 2rem;
 		color: var(--purple);
 		font-size: 0.7rem;
 	}
