@@ -1,6 +1,6 @@
 <script>
   import Flows from '$lib/components/Flows/index.svelte';
-	import ExternalLink from '$lib/components/ExternalLink/index.svelte';
+	import ArrowLink from '$lib/components/ArrowLink/index.svelte';
 
 	export let content = {};
 	export let links = {}
@@ -23,12 +23,12 @@
 	</div>
 	<div class="foreground">
 		<div class="action-links">
-			<ExternalLink
+			<ArrowLink
 				link={paypal_url}
 				image={paypal_logo_url}
 				description={paypal_beschreibung}
 			/>
-			<ExternalLink
+			<ArrowLink
 				link={amazon_url}
 				image={amazon_logo_url}
 				description={amazon_beschreibung}
@@ -97,5 +97,7 @@
 	a {
 		display: inline-block;
 		margin-top: 1rem;
+		color: inherit;
+		border: none;
 	}
 </style>

@@ -64,5 +64,14 @@ main {
 }
 
 a {
+	text-decoration: none;
+	color: var(--black);
+}
+
+a:not(.a-esc) {
+	border-bottom: 2px solid var(--blue);
+}
+
+a:not(.a-esc):hover {
 	color: var(--blue);
 }

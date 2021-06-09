@@ -11,7 +11,7 @@
 		<Flows color="blue" />
 	</div>
 	<div class="foreground">
-		<a class="title" href="/">
+		<a class="title a-esc" href="/">
 			<h1>Förderverein</h1>
 			<h2>Franklinschule Mannheim e.V.</h2>
 		</a>
@@ -22,7 +22,7 @@
 				<li class:active={$page.path === '/mitmachen'}><a sveltekit:prefetch href="/mitmachen">Mitmachen</a></li>
 			</ul>
 		</nav>
-		<a class="logo" href="/">
+		<a class="logo a-esc" href="/">
 			<img
 				src={logo}
 				alt="Logo des Förderverein Franklinschule"
@@ -133,8 +133,6 @@
 	}
 
 	a {
-		color: var(--black);
-		text-decoration: none;
 		white-space: nowrap;
 	}
 </style>
