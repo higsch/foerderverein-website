@@ -62,3 +62,7 @@ h1, h2, h3 {
 main {
 	height: 500px;
 }
+
+a {
+	color: var(--blue);
+}

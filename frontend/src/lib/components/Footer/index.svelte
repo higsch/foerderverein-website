@@ -1,5 +1,6 @@
 <script>
   import Flows from '$lib/components/Flows/index.svelte';
+	import ExternalLink from '$lib/components/ExternalLink/index.svelte';
 
 	export let content = {};
 	export let links = {}
@@ -8,13 +9,11 @@
 	$: ({
 		paypal_beschreibung,
 		paypal_url,
-		paypal_logo,
+		paypal_logo_url,
 		amazon_beschreibung,
 		amazon_url,
-		amazon_logo
+		amazon_logo_url
 	} = links);
-
-	$: console.log(links);
 </script>
 
 <footer>
@@ -23,7 +22,18 @@
 		<Flows color="purple" />
 	</div>
 	<div class="foreground">
-		<div class="action-links"></div>
+		<div class="action-links">
+			<ExternalLink
+				link={paypal_url}
+				image={paypal_logo_url}
+				description={paypal_beschreibung}
+			/>
+			<ExternalLink
+				link={amazon_url}
+				image={amazon_logo_url}
+				description={amazon_beschreibung}
+			/>
+		</div>
 		<div class="address">
 			<p>{@html adresse}</p>
 			<a href="mailto:{email}">{email}</a>
@@ -73,6 +83,7 @@
 	@media (min-width: 600px) {
 		.foreground {
 			flex-direction: row;
+			align-items: flex-start;
 		}
 	}
 
