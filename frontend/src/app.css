@@ -16,6 +16,7 @@
 	--mintgreen: #d1ffd7;
 	--green: #23f0c7;
 	--purple: #6457a6;
+	--lightpurple: #ded8ff;
 	--pink: #ff9fb2;
 	--title-font: Commissioner, Verdana, serif;
 	--paragraph-font: 'Nunito Sans', Arial, sans-serif;
@@ -59,6 +60,18 @@ h1, h2, h3 {
 	font-family: var(--title-font);
 }
 
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+h3 {
+	font-size: 1.2rem;
+}
+
 main {
 	height: 500px;
 }
@@ -74,4 +87,30 @@ a:not(.a-esc) {
 
 a:not(.a-esc):hover {
 	color: var(--blue);
+}
+
+section {
+	width: 100%;
+	margin: 2rem 0;
+}
+
+section p {
+	padding: 0 1rem;
+}
+
+section h1, section h2 {
+	margin: 1rem 0;
+	text-align: center;
+}
+
+section.post-cards {
+	width: 100%;
+	margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+	section.post-cards {
+		width: 87%;
+		margin: 0 auto;
+	}
 }

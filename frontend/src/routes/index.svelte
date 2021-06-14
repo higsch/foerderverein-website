@@ -1,33 +1,38 @@
 <script context="module">
-  import { HOST } from '$lib/utils/api';
+  import { getIndexIntro, getPosts } from '$lib/utils/api';
   
   export async function load({ fetch }) {
-    const url = `${HOST}/pages?slug=wir-bringen-die-franklinschule-zum-bluehen`;
-		const res = await fetch(url);
-		if (res.ok) {
-      const [ data ] = await res.json();
-			return {
-				props: {
-					data
-				}
-			};
-		}
-
+    const intro = await(getIndexIntro({fetch}));
+		const posts = await(getPosts({fetch, top: 3}));
 		return {
-			status: res.status,
-			error: new Error(`Could not load ${url}`)
+			props: {
+				intro,
+				posts
+			}
 		};
 	}
 </script>
 
 <script>
-  export let data;
+	import PostCard from '$lib/components/PostCard/index.svelte';
+
+  export let intro;
+	export let posts;
 </script>
 
-<!-- <h2>
-  {data.title.rendered}
-</h2>
-{@html data.content.rendered} -->
+<section>
+	<!-- Intro -->
+	<h2>
+		{intro.title.rendered}
+	</h2>
+	{@html intro.content.rendered}
+</section>
+<section class="post-cards">
+	<!-- Three recent blog articles -->
+	{#each posts as post (post.id)}
+		<PostCard post={post} />
+	{/each}
+</section>
 
 <style>
 	
