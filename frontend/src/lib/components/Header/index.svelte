@@ -35,6 +35,7 @@
 	header {
 		position: relative;
 		width: 100%;
+		min-height: 260px;
 	}
 
 	.background {
@@ -62,7 +63,7 @@
 		height: 100%;
 	}
 
-	@media (min-width: 600px) {
+	@media (min-width: 900px) {
 		.foreground {
 			flex-direction: row;
 		}
@@ -80,7 +81,7 @@
 		text-align: center;
 	}
 
-	@media (min-width: 600px) {
+	@media (min-width: 900px) {
 		.title {
 			transform: translateY(-10%);
 		}
@@ -98,7 +99,7 @@
 		justify-content: center;
 	}
 
-	@media (min-width: 600px) {
+	@media (min-width: 900px) {
 		.logo {
 			order: 2;
 		}
@@ -114,7 +115,7 @@
 		justify-content: center;
 	}
 
-	@media (min-width: 600px) {
+	@media (min-width: 900px) {
 		nav {
 			order: 3;
 			transform: translateY(-10%);
