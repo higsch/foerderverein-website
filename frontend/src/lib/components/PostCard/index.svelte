@@ -14,6 +14,7 @@
   class="post-card"
   href={`/neuigkeiten/${post.slug}`}
 >
+  <div class="bar"></div>
   <div class="image-wrapper">
     {#if (post.postImage)}
       <img
@@ -44,26 +45,48 @@
     margin: 0.5rem 0;
     background-color: var(--lightpurple);
     border: none;
+    --bar-dimension: 0.7rem;
+    --border-radius: 5px;
   }
 
   @media (min-width: 600px) {
     a.post-card {
       flex-direction: row;
       height: 232px;
-      border-radius: 5px;
+      border-radius: var(--border-radius);
+    }
+  }
+
+  .bar {
+    width: 100%;
+    height: var(--bar-dimension);
+    min-height: var(--bar-dimension);
+    background-color: var(--blue);
+  }
+
+  @media (min-width: 600px) {
+    .bar {
+      width: var(--bar-dimension);
+      min-width: var(--bar-dimension);
+      height: 100%;
+      background-color: var(--blue);
+      border: none;
+      border-top-left-radius: var(--border-radius);
+      border-bottom-left-radius: var(--border-radius);
     }
   }
 
   .image-wrapper {
     width: 100%;
-    margin: 1rem 0;
+    margin: 0 0 1rem 0;
+    background-color: var(--blue);
   }
 
   @media (min-width: 600px) {
     .image-wrapper {
       min-width: 39%;
       height: 100%;
-      margin: 0 1rem;
+      margin: 0 1rem 0 0;
     }
   }
   
