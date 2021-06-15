@@ -115,7 +115,7 @@
     z-index: 100;
     width: 100%;
     height: 100%;
-    background: linear-gradient(transparent, transparent 70%, var(--lightpurple));
+    background: linear-gradient(var(--lightpurple-transparent), var(--lightpurple-transparent) 70%, var(--lightpurple));
   }
 
   .date {
