@@ -56,7 +56,7 @@
 	main {
 		flex: 1;
 		width: 100%;
-		max-width: 980px;
+		max-width: 1100px;
 		margin: 0 auto;
 		padding: 1rem 0;
 	}

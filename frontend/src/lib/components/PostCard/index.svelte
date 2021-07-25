@@ -45,8 +45,6 @@
     margin: 0.5rem 0;
     background-color: var(--lightpurple);
     border: none;
-    --bar-dimension: 0.7rem;
-    --border-radius: 5px;
   }
 
   @media (min-width: 600px) {

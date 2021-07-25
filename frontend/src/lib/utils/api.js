@@ -43,6 +43,12 @@ export const getIndexIntro = async ({ fetch }) => {
   return await extractFirstData(res);
 };
 
+export const getAboutIntro = async ({ fetch }) => {
+  const url = `${HOST}/pages?slug=unser-team`;
+  const res = await fetch(url);
+  return await extractFirstData(res);
+};
+
 export const getPosts = async ({ fetch, top }) => {
   let url = `${HOST}/posts`;
   if (top) {
@@ -60,6 +66,27 @@ export const getPosts = async ({ fetch, top }) => {
         ...d,
         date: parseDate(d.date),
         excerpt: pruneExcerpt(d.excerpt.rendered),
+        postImage
+      };
+    }));
+    return parsedData;
+  }
+  return new Error(`Could not load ${url}.`);
+};
+
+export const getBosses = async ({ fetch }) => {
+  let url = `${HOST}/vorstand`;
+  const res = await fetch(url);
+  if (res.ok) {
+    const data = await res.json();
+    const parsedData = Promise.all(data.map(async d => {
+      let postImage;
+      if (d.bild) {
+        postImage = await getPostImage({fetch, id: d.bild});
+      }
+      return {
+        ...d,
+        date: parseDate(d.date),
         postImage
       };
     }));

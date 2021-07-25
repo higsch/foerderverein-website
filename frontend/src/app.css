@@ -21,6 +21,9 @@
 	--pink: #ff9fb2;
 	--title-font: Commissioner, Verdana, serif;
 	--paragraph-font: 'Nunito Sans', Arial, sans-serif;
+
+	--border-radius: 5px;
+	--bar-dimension: 0.7rem;
 }
 
 html,
@@ -97,6 +100,7 @@ section {
 
 section p {
 	padding: 0 1rem;
+	line-height: 1.5;
 }
 
 section h1, section h2 {
