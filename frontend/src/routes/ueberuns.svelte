@@ -18,8 +18,6 @@
 
   export let intro;
 	export let bosses;
-
-  $: console.log(bosses)
 </script>
 
 <section>

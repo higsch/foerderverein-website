@@ -1,4 +1,4 @@
-import { timeParse } from 'd3';
+import { timeParse } from 'd3-time-format';
 
 const parseDate = timeParse('%Y-%m-%dT%H:%M:%S');
 
@@ -91,6 +91,27 @@ export const getBosses = async ({ fetch }) => {
       };
     }));
     return parsedData;
+  }
+  return new Error(`Could not load ${url}.`);
+};
+
+export const getPost = async ({ fetch, slug }) => {
+  let url = `${HOST}/posts?slug=${slug}`;
+  const res = await fetch(url);
+  if (res.ok) {
+    const [ data ] = await res.json();
+      let postImage;
+      if (data.featured_media) {
+        postImage = await getPostImage({fetch, id: data.featured_media});
+      }
+      const parsedData = {
+        ...data,
+        date: parseDate(data.date),
+        title: data.title.rendered,
+        body: data.content.rendered,
+        postImage
+      };
+      return parsedData;
   }
   return new Error(`Could not load ${url}.`);
 };

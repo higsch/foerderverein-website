@@ -65,19 +65,15 @@ h1, h2, h3 {
 }
 
 h1 {
-	font-size: 2rem;
+	font-size: 2.5rem;
 }
 
 h2 {
-	font-size: 1.5rem;
+	font-size: 2rem;
 }
 
 h3 {
 	font-size: 1.2rem;
-}
-
-main {
-	height: 500px;
 }
 
 a {
@@ -99,7 +95,7 @@ section {
 }
 
 section p {
-	padding: 0 1rem;
+	padding: 1rem;
 	line-height: 1.5;
 }
 
@@ -118,4 +114,14 @@ section.post-cards {
 		width: 87%;
 		margin: 0 auto;
 	}
+}
+
+section figure {
+	display: flex;
+	align-items: center;
+	margin: 1rem 0;
+}
+
+section figure img {
+	margin: 0 auto;
 }

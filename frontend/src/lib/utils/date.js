@@ -1,4 +1,4 @@
-import { timeFormatDefaultLocale } from 'd3';
+import { timeFormatDefaultLocale } from 'd3-time-format';
 
 export const locale = timeFormatDefaultLocale({
 	decimal: ',',

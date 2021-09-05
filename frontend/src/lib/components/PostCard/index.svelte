@@ -128,7 +128,7 @@
   p, p > :global(p) {
     width: 100%;
     padding: 0;
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--gray);
   }
 </style>

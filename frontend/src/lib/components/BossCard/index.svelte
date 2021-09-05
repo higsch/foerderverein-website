@@ -67,7 +67,7 @@
     align-self: flex-start;
     padding: 0;
     color: var(--gray);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-align: left;
   }
 
