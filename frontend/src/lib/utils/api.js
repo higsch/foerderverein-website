@@ -54,11 +54,9 @@ export const getPosts = async ({ fetch, top = 100 }) => {
   if (top) {
     url += `?per_page=${top}&page=1`;
   }
-  console.log(url)
   const res = await fetch(url);
   if (res.ok) {
     const data = await res.json();
-    console.log(data)
     const parsedData = Promise.all(data.map(async d => {
       let postImage;
       if (d.featured_media) {

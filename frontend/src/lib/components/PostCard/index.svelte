@@ -75,7 +75,6 @@
   }
 
   .image-wrapper {
-    width: 100%;
     margin: 0 0 1rem 0;
     background-color: var(--blue);
   }
@@ -128,7 +127,7 @@
   p, p > :global(p) {
     width: 100%;
     padding: 0;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--gray);
   }
 </style>
