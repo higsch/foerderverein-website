@@ -27,7 +27,7 @@ const pruneExcerpt = (excerpt) => {
     .replace(/&hellip;/g, '');
 };
 
-const getPostImage = async ({fetch, id}) => {
+const getPostAsset = async ({fetch, id}) => {
   const url = `${MEDIA}/${id}`;
   const res = await fetch(url);
   const data = await extractData(res);
@@ -49,6 +49,12 @@ export const getAboutIntro = async ({ fetch }) => {
   return await extractFirstData(res);
 };
 
+export const getParticipateIntro = async ({ fetch }) => {
+  const url = `${HOST}/pages?slug=mitmachen`;
+  const res = await fetch(url);
+  return await extractFirstData(res);
+};
+
 export const getPosts = async ({ fetch, top = 100 }) => {
   let url = `${HOST}/posts`;
   if (top) {
@@ -60,7 +66,7 @@ export const getPosts = async ({ fetch, top = 100 }) => {
     const parsedData = Promise.all(data.map(async d => {
       let postImage;
       if (d.featured_media) {
-        postImage = await getPostImage({fetch, id: d.featured_media});
+        postImage = await getPostAsset({fetch, id: d.featured_media});
       }
       return {
         ...d,
@@ -82,12 +88,32 @@ export const getBosses = async ({ fetch }) => {
     const parsedData = Promise.all(data.map(async d => {
       let postImage;
       if (d.bild) {
-        postImage = await getPostImage({fetch, id: d.bild});
+        postImage = await getPostAsset({fetch, id: d.bild});
       }
       return {
         ...d,
         date: parseDate(d.date),
         postImage
+      };
+    }));
+    return parsedData;
+  }
+  return new Error(`Could not load ${url}.`);
+};
+
+export const getDownloads = async ({ fetch }) => {
+  let url = `${HOST}/downloads`;
+  const res = await fetch(url);
+  if (res.ok) {
+    const data = await res.json();
+    const parsedData = Promise.all(data.map(async d => {
+      let file;
+      if (d.datei) {
+        file = await getPostAsset({fetch, id: d.datei});
+      }
+      return {
+        ...d,
+        file
       };
     }));
     return parsedData;
@@ -102,7 +128,7 @@ export const getPost = async ({ fetch, slug }) => {
     const [ data ] = await res.json();
       let postImage;
       if (data.featured_media) {
-        postImage = await getPostImage({fetch, id: data.featured_media});
+        postImage = await getPostAsset({fetch, id: data.featured_media});
       }
       const parsedData = {
         ...data,
